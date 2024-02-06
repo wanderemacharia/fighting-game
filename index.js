@@ -42,8 +42,8 @@ const player = new Fighter({
         y: 0
     },
     imageSrc: './img/samuraiMack/Idle.png',
-    framesMax: 6
-
+    framesMax: 6,
+    scale: 2.5
 
 })
 
