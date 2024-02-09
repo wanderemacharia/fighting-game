@@ -126,9 +126,9 @@ function animate () {
         player.switchSprite('run')
     }
 
-if (player.velocity.y < 0) {
-    player.switchSprite('jump')
-}
+    if (player.velocity.y < 0) {
+        player.switchSprite('jump')
+    }
 
     //enemy movement
     if (keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft') {
@@ -154,7 +154,8 @@ if (player.velocity.y < 0) {
     {
         enemy.isAttacking = false
         player.health -= 20
-        document.querySelector('#playerHealth').style.width = player.health + '%'    }
+        document.querySelector('#playerHealth').style.width = player.health + '%'    
+    }
 
      //end game based on health
      if (enemy.health <= 0 || player.health <= 0) {
