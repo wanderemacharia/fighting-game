@@ -110,37 +110,46 @@ class Fighter extends Sprite {
         } else this.velocity.y += gravity
     } 
 
-    switchSprite(sprite) {
-        switch(sprite) {
-            case 'idle':
-                if (this.image !== this.sprite.image.idle) {
-                    this.image = this.sprites.idle.image 
-                    this.framesMax = this.sprites.idle.framesMax
-                    this.framesCurrent = 0
-                }
-                break;
-            case 'run':
-                if (this.image !== this.sprite.image.run) {
-                    this.image = this.sprites.run.image
-                    this.framesMax = this.sprites.run.framesMax
-                    this.framesCurrent = 0
-                }
-                break;
-            case 'jump':
-                if (this.image !== this.sprite.jump.image) {
-                player.image = player.sprites.jump.image
-                player.framesMax = player.sprites.jump.framesMax 
-                this.framesCurrent = 0
-
-                }
-                break;
-        }
-    }
-
+    
     attack() {
         this.isAttacking = true
         setTimeout(() => {
             this.isAttacking = false
         }, 100)
     }
-}
+
+    switchSprite(sprite) {
+        switch(sprite) {
+            case 'idle':
+                if (this.image !== this.sprites.idle.image) {
+                    this.image = this.sprites.idle.image 
+                    this.framesMax = this.sprites.idle.framesMax
+                    this.framesCurrent = 0
+                }
+                break;
+            case 'run':
+                if (this.image !== this.sprites.run.image) {
+                    this.image = this.sprites.run.image
+                    this.framesMax = this.sprites.run.framesMax
+                    this.framesCurrent = 0
+                }
+                break;
+            case 'jump':
+                if (this.image !== this.sprites.jump.image) {
+                player.image = player.sprites.jump.image
+                player.framesMax = player.sprites.jump.framesMax 
+                this.framesCurrent = 0
+                }
+                break;
+            case 'fall':
+                if (this.image !== this.sprites.fall.image) {
+                player.image = player.sprites.fall.image
+                player.framesMax = player.sprites.fall.framesMax 
+                this.framesCurrent = 0
+                }
+                break;
+            }
+        }   
+
+    }
+
