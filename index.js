@@ -141,7 +141,7 @@ console.log(player);
 decreaseTimer()
 
 
-function animate () {
+function animate() {
     window.requestAnimationFrame(animate)
     c.fillStyle = 'black'
     c.fillRect(0, 0, canvas.width, canvas.height)
@@ -182,7 +182,7 @@ function animate () {
         enemy.switchSprite('idle')
     }
 
-        //jumping and falling animation
+    //jumping and falling animation
     if (enemy.velocity.y < 0) { 
         enemy.switchSprite('jump')
      } else if (enemy.velocity.y > 0) {
@@ -190,7 +190,7 @@ function animate () {
     }
     
     
-        //detect for collision/ touching
+    //detect for collision/ touching
     if (rectangularCollision({
         rectangle1: player,
         rectangle2: enemy
@@ -211,7 +211,7 @@ function animate () {
         document.querySelector('#playerHealth').style.width = player.health + '%'    
     }
     
-         //end game based on health
+    //end game based on health
     if (enemy.health <= 0 || player.health <= 0) {
         determineWinner({ player, enemy, timerId })
     }
