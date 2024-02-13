@@ -69,6 +69,14 @@ const player = new Fighter({
             imageSrc:'./img/samuraiMack/Attack1.png',
             framesMax: 6
         }
+    },
+    attackBox: {
+        offset: {
+            x: 100,
+            y: 50
+        },
+        width: 160,
+        height: 50
     }
 
 })
@@ -115,8 +123,19 @@ const enemy = new Fighter({
             imageSrc:'./img/kenji/Attack1.png',
             framesMax: 4
         }
+    },
+    attackBox: {
+        offset: {
+            x: 0,
+            y: 0
+        },
+        width: 100,
+        height: 50
     }
 })
+
+// console.log(player); 
+
 
 const keys = {
     a: {
@@ -135,7 +154,6 @@ const keys = {
         pressed: false
     }
 }
-console.log(player); 
 
 
 decreaseTimer()
@@ -164,7 +182,7 @@ function animate() {
         player.switchSprite('idle')
 
     }
-//jumping and falling animation
+    //jumping and falling animation
     if (player.velocity.y < 0) {
         player.switchSprite('jump')
     } else if (player.velocity.y > 0) {
@@ -185,7 +203,7 @@ function animate() {
     //jumping and falling animation
     if (enemy.velocity.y < 0) { 
         enemy.switchSprite('jump')
-     } else if (enemy.velocity.y > 0) {
+    } else if (enemy.velocity.y > 0) {
         enemy.switchSprite('fall')
     }
     
@@ -215,7 +233,7 @@ function animate() {
     if (enemy.health <= 0 || player.health <= 0) {
         determineWinner({ player, enemy, timerId })
     }
-    }
+}
 
    
 animate()
@@ -244,7 +262,7 @@ window.addEventListener('keydown', (event) => {
         case 'ArrowLeft':
             keys.ArrowLeft.pressed = true
             enemy.lastKey = 'ArrowLeft'
-                break
+            break
         case 'ArrowUp':
             enemy.velocity.y = -20
             break
